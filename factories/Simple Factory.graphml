@@ -40,12 +40,16 @@
 					<yjs:Arrow type="TRIANGLE" stroke="{y:GraphMLReference 3}" fill="#FFFFFFFF"/>
 				</yjs:PolylineEdgeStyle.sourceArrow>
 			</yjs:PolylineEdgeStyle>
-			<yjs:Stroke x:Key="5" fill="#FF000000"/>
+			<yjs:DefaultLabelStyle x:Key="5" verticalTextAlignment="BOTTOM" horizontalTextAlignment="CENTER" textFill="BLACK">
+				<yjs:DefaultLabelStyle.font>
+					<yjs:Font fontSize="12" fontFamily="'Arial'"/>
+				</yjs:DefaultLabelStyle.font>
+			</yjs:DefaultLabelStyle>
 		</y:SharedData>
 	</data>
 	<graph id="G" edgedefault="directed">
 		<data key="d5">
-			<y:Json>{"version":"2.0.0","theme":{"name":"light","version":"1.0.0"}}</y:Json>
+			<y:Json>{"version":"2.0.0","bridge-style":"FLAT","theme":{"name":"light","version":"1.0.0"}}</y:Json>
 		</data>
 		<node id="n0">
 			<data key="d4">
@@ -104,7 +108,7 @@
 			<data key="d6">
 				<uml:UMLNodeStyle fill="{y:GraphMLReference 1}" highlightFill="{y:GraphMLReference 2}">
 					<uml:UMLNodeStyle.model>
-						<uml:UMLClassModel stereotype="" constraint="" className="ConcreteProduct1" attributesOpen="false" operationsOpen="false">
+						<uml:UMLClassModel stereotype="" constraint="" className="ConcreteProduct2" attributesOpen="false" operationsOpen="false">
 							<uml:UMLClassModel.attributes>
 								<x:Array Type="sys:Object"/>
 							</uml:UMLClassModel.attributes>
@@ -119,12 +123,12 @@
 		</node>
 		<node id="n3">
 			<data key="d4">
-				<y:RectD X="-14.5" Y="-325.5" Width="195" Height="108"/>
+				<y:RectD X="68" Y="-325.5" Width="195" Height="108"/>
 			</data>
 			<data key="d6">
 				<uml:UMLNodeStyle fill="{y:GraphMLReference 1}" highlightFill="{y:GraphMLReference 2}">
 					<uml:UMLNodeStyle.model>
-						<uml:UMLClassModel stereotype="" constraint="" className="SimpleFactory" attributesOpen="false" operationsOpen="true">
+						<uml:UMLClassModel stereotype="" constraint="" className="Factory" attributesOpen="false" operationsOpen="true">
 							<uml:UMLClassModel.attributes>
 								<x:Array Type="sys:Object"/>
 							</uml:UMLClassModel.attributes>
@@ -138,11 +142,7 @@
 				</uml:UMLNodeStyle>
 			</data>
 			<port name="p0"/>
-			<port name="p1">
-				<data key="d15">
-					<y:FreeNodePortLocationModelParameter Ratio="0.5,0.010638297872340441"/>
-				</data>
-			</port>
+			<port name="p1"/>
 		</node>
 		<node id="n4">
 			<data key="d3">
@@ -160,7 +160,7 @@
 				</x:List>
 			</data>
 			<data key="d4">
-				<y:RectD X="-2.5" Y="-115.5" Width="171" Height="30"/>
+				<y:RectD X="80" Y="-115.5" Width="171" Height="30"/>
 			</data>
 			<data key="d6">
 				<uml:UMLNoteStyle fill="#FFB0BEC5" stroke="BLACK"/>
@@ -190,6 +190,20 @@
 			</data>
 		</edge>
 		<edge id="e2" source="n3" target="n0" sourceport="p0" targetport="p2">
+			<data key="d10">
+				<x:List>
+					<y:Label Style="{y:GraphMLReference 5}">
+						<y:Label.Text>&lt;&lt;create&gt;&gt;</y:Label.Text>
+						<y:Label.LayoutParameter>
+							<y:SmartEdgeLabelModelParameter Distance="5">
+								<y:SmartEdgeLabelModelParameter.Model>
+									<y:SmartEdgeLabelModel/>
+								</y:SmartEdgeLabelModelParameter.Model>
+							</y:SmartEdgeLabelModelParameter>
+						</y:Label.LayoutParameter>
+					</y:Label>
+				</x:List>
+			</data>
 			<data key="d12">
 				<yjs:PolylineEdgeStyle>
 					<yjs:PolylineEdgeStyle.stroke>
@@ -202,16 +216,28 @@
 			</data>
 		</edge>
 		<edge id="e3" source="n4" target="n3" sourceport="p0" targetport="p1">
-			<data key="d11">
+			<data key="d10">
 				<x:List>
-					<y:Bend Location="83,-163.5"/>
+					<y:Label Style="{y:GraphMLReference 5}">
+						<y:Label.Text>&lt;&lt;use&gt;&gt;</y:Label.Text>
+						<y:Label.LayoutParameter>
+							<y:SmartEdgeLabelModelParameter Distance="5">
+								<y:SmartEdgeLabelModelParameter.Model>
+									<y:SmartEdgeLabelModel Angle="1.5707963267948966"/>
+								</y:SmartEdgeLabelModelParameter.Model>
+							</y:SmartEdgeLabelModelParameter>
+						</y:Label.LayoutParameter>
+					</y:Label>
 				</x:List>
 			</data>
 			<data key="d12">
-				<yjs:PolylineEdgeStyle stroke="{y:GraphMLReference 5}">
-					<yjs:PolylineEdgeStyle.sourceArrow>
-						<yjs:Arrow type="DIAMOND" stroke="{y:GraphMLReference 5}" fill="#FFFFFFFF"/>
-					</yjs:PolylineEdgeStyle.sourceArrow>
+				<yjs:PolylineEdgeStyle>
+					<yjs:PolylineEdgeStyle.stroke>
+						<yjs:Stroke fill="#FF000000" dashStyle="Dash"/>
+					</yjs:PolylineEdgeStyle.stroke>
+					<yjs:PolylineEdgeStyle.targetArrow>
+						<yjs:Arrow stroke="#FF000000" fill="#FF000000"/>
+					</yjs:PolylineEdgeStyle.targetArrow>
 				</yjs:PolylineEdgeStyle>
 			</data>
 		</edge>

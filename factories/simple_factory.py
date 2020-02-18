@@ -13,55 +13,10 @@ Vantagens:
     fábrica pode retornar um objeto já criado para o cliente, ao invés de criar
     novos objetos sempre que o cliente precisar.
 
-    Simple factory não é considerada padrão de projeto, mas geralmente livros
-    trazem este projeto como uma base para o entendimento de Factory Method e
-    Abstract factory.
+Vamos ver 2 tipos de Factory da GoF: Factory method e Abstract Factory
 
-Vamos ver 3 tipos de Factory: Simple factory (não GoF), Factory method e
-Abstract Factory
+Nessa aula:
+Simple Factory <- Uma espécie de Factory Method parametrizado
+Simple Factory pode não ser considerado um padrão de projeto por si só
+Simple Factory pode quebrar princípios do SOLID
 """
-from abc import ABC, abstractmethod
-
-
-class Impressora(ABC):
-    @abstractmethod
-    def imprimir(self): pass
-
-
-class ImpressoraMultifuncional(Impressora):
-    def imprimir(self):
-        print('Impressora Multifuncional está imprimindo')
-
-
-class ImpressoraSimples(Impressora):
-    def imprimir(self):
-        print('Impressora Simples está imprimindo')
-
-
-class ImpressoraAvancada(Impressora):
-    def imprimir(self):
-        print('Impressora Avançada está imprimindo')
-
-
-class ImpressoraFactory:
-    @staticmethod
-    def criar(tipo):
-        if tipo == 'multifuncional':
-            return ImpressoraMultifuncional()
-        if tipo == 'simples':
-            return ImpressoraSimples()
-        if tipo == 'avancada':
-            return ImpressoraAvancada()
-        assert 0, 'Impressora não foi encontrada'
-
-
-if __name__ == "__main__":
-    impressora_multifuncional = ImpressoraFactory.criar('multifuncional')
-    impressora_simples = ImpressoraFactory.criar('simples')
-    impressora_avancada = ImpressoraFactory.criar('avancada')
-
-    impressoras = [impressora_multifuncional,
-                   impressora_simples, impressora_avancada]
-
-    for imp in impressoras:
-        imp.imprimir()
