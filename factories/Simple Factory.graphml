@@ -40,16 +40,23 @@
 					<yjs:Arrow type="TRIANGLE" stroke="{y:GraphMLReference 3}" fill="#FFFFFFFF"/>
 				</yjs:PolylineEdgeStyle.sourceArrow>
 			</yjs:PolylineEdgeStyle>
-			<yjs:DefaultLabelStyle x:Key="5" verticalTextAlignment="BOTTOM" horizontalTextAlignment="CENTER" textFill="BLACK">
+			<yjs:Stroke x:Key="5" fill="#FF000000"/>
+			<y:SmartEdgeLabelModel x:Key="6"/>
+			<yjs:DefaultLabelStyle x:Key="7" verticalTextAlignment="BOTTOM" horizontalTextAlignment="CENTER" textFill="BLACK">
 				<yjs:DefaultLabelStyle.font>
 					<yjs:Font fontSize="12" fontFamily="'Arial'"/>
 				</yjs:DefaultLabelStyle.font>
 			</yjs:DefaultLabelStyle>
+			<yjs:PolylineEdgeStyle x:Key="8" stroke="{y:GraphMLReference 5}">
+				<yjs:PolylineEdgeStyle.targetArrow>
+					<yjs:Arrow stroke="{y:GraphMLReference 5}" fill="#FF000000"/>
+				</yjs:PolylineEdgeStyle.targetArrow>
+			</yjs:PolylineEdgeStyle>
 		</y:SharedData>
 	</data>
 	<graph id="G" edgedefault="directed">
 		<data key="d5">
-			<y:Json>{"version":"2.0.0","bridge-style":"FLAT","theme":{"name":"light","version":"1.0.0"}}</y:Json>
+			<y:Json>{"version":"2.0.0","theme":{"name":"light","version":"1.0.0"}}</y:Json>
 		</data>
 		<node id="n0">
 			<data key="d4">
@@ -71,9 +78,10 @@
 			</data>
 			<port name="p0"/>
 			<port name="p1"/>
-			<port name="p2">
+			<port name="p2"/>
+			<port name="p3">
 				<data key="d15">
-					<y:FreeNodePortLocationModelParameter Ratio="0.007874015748031482,0.5"/>
+					<y:FreeNodePortLocationModelParameter Ratio="0.9921259842519685,0.5"/>
 				</data>
 			</port>
 		</node>
@@ -123,7 +131,7 @@
 		</node>
 		<node id="n3">
 			<data key="d4">
-				<y:RectD X="68" Y="-325.5" Width="195" Height="108"/>
+				<y:RectD X="68" Y="-325.5" Width="125" Height="108"/>
 			</data>
 			<data key="d6">
 				<uml:UMLNodeStyle fill="{y:GraphMLReference 1}" highlightFill="{y:GraphMLReference 2}">
@@ -134,14 +142,18 @@
 							</uml:UMLClassModel.attributes>
 							<uml:UMLClassModel.operations>
 								<x:Array Type="sys:Object">
-									<sys:String><![CDATA[+ criar(tipo: String): Product]]></sys:String>
+									<sys:String>factoryMethod()</sys:String>
 								</x:Array>
 							</uml:UMLClassModel.operations>
 						</uml:UMLClassModel>
 					</uml:UMLNodeStyle.model>
 				</uml:UMLNodeStyle>
 			</data>
-			<port name="p0"/>
+			<port name="p0">
+				<data key="d15">
+					<y:FreeNodePortLocationModelParameter Ratio="0.5,0.009090909090909094"/>
+				</data>
+			</port>
 			<port name="p1"/>
 		</node>
 		<node id="n4">
@@ -160,12 +172,13 @@
 				</x:List>
 			</data>
 			<data key="d4">
-				<y:RectD X="80" Y="-115.5" Width="171" Height="30"/>
+				<y:RectD X="-73.1875" Y="-399.625" Width="96.875" Height="30"/>
 			</data>
 			<data key="d6">
 				<uml:UMLNoteStyle fill="#FFB0BEC5" stroke="BLACK"/>
 			</data>
 			<port name="p0"/>
+			<port name="p1"/>
 		</node>
 		<edge id="e0" source="n0" target="n1" sourceport="p0" targetport="p0">
 			<data key="d11">
@@ -189,11 +202,51 @@
 				<y:GraphMLReference ResourceKey="4"/>
 			</data>
 		</edge>
-		<edge id="e2" source="n3" target="n0" sourceport="p0" targetport="p2">
+		<edge id="e2" source="n4" target="n3" sourceport="p0" targetport="p0">
 			<data key="d10">
 				<x:List>
-					<y:Label Style="{y:GraphMLReference 5}">
-						<y:Label.Text>&lt;&lt;create&gt;&gt;</y:Label.Text>
+					<y:Label Style="{y:GraphMLReference 7}">
+						<y:Label.Text>&lt;&lt;pede&gt;&gt;</y:Label.Text>
+						<y:Label.LayoutParameter>
+							<y:SmartEdgeLabelModelParameter Model="{y:GraphMLReference 6}" Distance="-5"/>
+						</y:Label.LayoutParameter>
+					</y:Label>
+				</x:List>
+			</data>
+			<data key="d11">
+				<x:List>
+					<y:Bend Location="130.5,-384.625"/>
+				</x:List>
+			</data>
+			<data key="d12">
+				<y:GraphMLReference ResourceKey="8"/>
+			</data>
+		</edge>
+		<edge id="e3" source="n4" target="n0" sourceport="p1" targetport="p2">
+			<data key="d10">
+				<x:List>
+					<y:Label Style="{y:GraphMLReference 7}">
+						<y:Label.Text>&lt;&lt;usa&gt;&gt;</y:Label.Text>
+						<y:Label.LayoutParameter>
+							<y:SmartEdgeLabelModelParameter Model="{y:GraphMLReference 6}" Distance="5"/>
+						</y:Label.LayoutParameter>
+					</y:Label>
+				</x:List>
+			</data>
+			<data key="d11">
+				<x:List>
+					<y:Bend Location="-180,-384.625"/>
+				</x:List>
+			</data>
+			<data key="d12">
+				<y:GraphMLReference ResourceKey="8"/>
+			</data>
+		</edge>
+		<edge id="e4" source="n3" target="n0" sourceport="p1" targetport="p3">
+			<data key="d10">
+				<x:List>
+					<y:Label>
+						<y:Label.Text>&lt;&lt;cria&gt;&gt;</y:Label.Text>
 						<y:Label.LayoutParameter>
 							<y:SmartEdgeLabelModelParameter Distance="5">
 								<y:SmartEdgeLabelModelParameter.Model>
@@ -201,32 +254,13 @@
 								</y:SmartEdgeLabelModelParameter.Model>
 							</y:SmartEdgeLabelModelParameter>
 						</y:Label.LayoutParameter>
-					</y:Label>
-				</x:List>
-			</data>
-			<data key="d12">
-				<yjs:PolylineEdgeStyle>
-					<yjs:PolylineEdgeStyle.stroke>
-						<yjs:Stroke fill="#FF000000" dashStyle="Dash"/>
-					</yjs:PolylineEdgeStyle.stroke>
-					<yjs:PolylineEdgeStyle.targetArrow>
-						<yjs:Arrow stroke="#FF000000" fill="#FF000000"/>
-					</yjs:PolylineEdgeStyle.targetArrow>
-				</yjs:PolylineEdgeStyle>
-			</data>
-		</edge>
-		<edge id="e3" source="n4" target="n3" sourceport="p0" targetport="p1">
-			<data key="d10">
-				<x:List>
-					<y:Label Style="{y:GraphMLReference 5}">
-						<y:Label.Text>&lt;&lt;use&gt;&gt;</y:Label.Text>
-						<y:Label.LayoutParameter>
-							<y:SmartEdgeLabelModelParameter Distance="5">
-								<y:SmartEdgeLabelModelParameter.Model>
-									<y:SmartEdgeLabelModel Angle="1.5707963267948966"/>
-								</y:SmartEdgeLabelModelParameter.Model>
-							</y:SmartEdgeLabelModelParameter>
-						</y:Label.LayoutParameter>
+						<y:Label.Style>
+							<yjs:DefaultLabelStyle verticalTextAlignment="BOTTOM" horizontalTextAlignment="CENTER" textFill="BLACK">
+								<yjs:DefaultLabelStyle.font>
+									<yjs:Font fontSize="12" fontFamily="'Arial'"/>
+								</yjs:DefaultLabelStyle.font>
+							</yjs:DefaultLabelStyle>
+						</y:Label.Style>
 					</y:Label>
 				</x:List>
 			</data>
