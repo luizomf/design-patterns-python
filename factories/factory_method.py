@@ -3,116 +3,84 @@ Factory method é um padrão de criação que permite definir uma interface para
 criar objetos, mas deixa as subclasses decidirem quais objetos criar. O
 Factory method permite adiar a instanciação para as subclasses, garantindo o
 baixo acoplamento entre classes.
-
-Observação importante: qualquer classe que se enquadrar na descrição acima e
-que tenha um método que cria objetos, está no padrão Factory Method.
 """
 from abc import ABC, abstractmethod
 
-# =============================================================================
-# Product
-# =============================================================================
 
-
-class Impressora(ABC):
-    """Product"""
+class Veiculo(ABC):
     @abstractmethod
-    def imprimir(self): pass
+    def buscar_cliente(self) -> None: pass
 
 
-# =============================================================================
-# Concret Products
-# =============================================================================
+class CarroLuxo(Veiculo):
+    def buscar_cliente(self) -> None:
+        print('Carro de luxo está buscando o cliente...')
 
 
-class ImpressoraMultifuncional(Impressora):
-    """Concrete Product"""
-
-    def imprimir(self):
-        print('Impressora Multifuncional está imprimindo')
+class CarroPopular(Veiculo):
+    def buscar_cliente(self) -> None:
+        print('Carro popular está buscando o cliente...')
 
 
-class ImpressoraSimples(Impressora):
-    """Concrete Product"""
-
-    def imprimir(self):
-        print('Impressora Simples está imprimindo')
+class MotoLuxo(Veiculo):
+    def buscar_cliente(self) -> None:
+        print('Moto de luxo está buscando o cliente...')
 
 
-class ImpressoraAvancada(Impressora):
-    """Concrete Product"""
-
-    def imprimir(self):
-        print('Impressora Avançada está imprimindo')
+class MotoPopular(Veiculo):
+    def buscar_cliente(self) -> None:
+        print('Moto popular está buscando o cliente...')
 
 
-class OutraImpressora(Impressora):
-    """Concrete Product"""
+class VeiculoFactory(ABC):
+    def __init__(self, tipo):
+        self.carro = self.get_carro(tipo)
 
-    def imprimir(self):
-        print('Outra impressora está imprimindo')
-
-
-# =============================================================================
-# Creator
-# =============================================================================
-
-class ImpressoraCreator(ABC):
-    """Creator"""
     @staticmethod
     @abstractmethod
-    def criar(): pass
+    def get_carro(tipo: str) -> Veiculo: pass
+
+    def buscar_cliente(self):
+        self.carro.buscar_cliente()
 
 
-# =============================================================================
-# Concrete Creators
-# =============================================================================
-
-
-class ImpressoraMultifuncionalCreator(ImpressoraCreator):
-    """Concrete Creator"""
+class ZonaNorteVeiculoFactory(VeiculoFactory):
     @staticmethod
-    def criar():
-        """Factory Method"""
-        return ImpressoraMultifuncional()
+    def get_carro(tipo: str) -> Veiculo:
+        if tipo == 'luxo':
+            return CarroLuxo()
+        if tipo == 'popular':
+            return CarroPopular()
+        if tipo == 'moto':
+            return MotoPopular()
+        if tipo == 'moto_luxo':
+            return MotoLuxo()
+        assert 0, 'Veículo não existe'
 
 
-class ImpressoraSimplesCreator(ImpressoraCreator):
-    """Concrete Creator"""
+class ZonaSulVeiculoFactory(VeiculoFactory):
     @staticmethod
-    def criar():
-        """Factory Method"""
-        return ImpressoraSimples()
-
-
-class ImpressoraAvancadaCreator(ImpressoraCreator):
-    """Concrete Creator"""
-    @staticmethod
-    def criar():
-        """Factory Method"""
-        return ImpressoraAvancada()
-
-
-class OutraImpressoraCreator(ImpressoraCreator):
-    """Concrete Creator"""
-    @staticmethod
-    def criar():
-        """Factory Method"""
-        return OutraImpressora()
+    def get_carro(tipo: str) -> Veiculo:
+        if tipo == 'popular':
+            return CarroPopular()
+        assert 0, 'Veículo não existe'
 
 
 if __name__ == "__main__":
-    # =========================================================================
-    # Código cliente
-    # =========================================================================
+    from random import choice
+    veiculos_disponiveis_zona_norte = ['luxo', 'popular', 'moto', 'moto_luxo']
+    veiculos_disponiveis_zona_sul = ['popular']
 
-    impressora_multifuncional = ImpressoraMultifuncionalCreator.criar()
-    impressora_simples = ImpressoraSimplesCreator.criar()
-    impressora_avancada = ImpressoraAvancadaCreator.criar()
-    outra_impressora = OutraImpressoraCreator.criar()
+    print('ZONA NORTE')
+    for i in range(10):
+        carro = ZonaNorteVeiculoFactory(
+            choice(veiculos_disponiveis_zona_norte))
+        carro.buscar_cliente()
 
-    impressoras = [impressora_multifuncional,
-                   impressora_simples, impressora_avancada, outra_impressora]
+    print()
 
-    for imp in impressoras:
-        imp.imprimir()
+    print('ZONA SUL')
+    for i in range(10):
+        carro2 = ZonaSulVeiculoFactory(
+            choice(veiculos_disponiveis_zona_sul))
+        carro2.buscar_cliente()

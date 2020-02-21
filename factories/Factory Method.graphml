@@ -34,27 +34,11 @@
 		<y:SharedData>
 			<yjs:Stroke x:Key="1" fill="#FF000000"/>
 			<yjs:Stroke x:Key="2" fill="#FF000000"/>
-			<yjs:Font x:Key="3" fontSize="12" fontFamily="'Arial'"/>
-			<y:SmartEdgeLabelModelParameter x:Key="4" Distance="5">
-				<y:SmartEdgeLabelModelParameter.Model>
-					<y:SmartEdgeLabelModel/>
-				</y:SmartEdgeLabelModelParameter.Model>
-			</y:SmartEdgeLabelModelParameter>
-			<yjs:DefaultLabelStyle x:Key="5" verticalTextAlignment="BOTTOM" horizontalTextAlignment="CENTER" font="{y:GraphMLReference 3}" textFill="BLACK"/>
-			<yjs:PolylineEdgeStyle x:Key="6">
-				<yjs:PolylineEdgeStyle.stroke>
-					<yjs:Stroke fill="#FF000000" dashStyle="Dash"/>
-				</yjs:PolylineEdgeStyle.stroke>
-				<yjs:PolylineEdgeStyle.targetArrow>
-					<yjs:Arrow stroke="#FF000000" fill="#FF000000"/>
-				</yjs:PolylineEdgeStyle.targetArrow>
-			</yjs:PolylineEdgeStyle>
-			<yjs:Stroke x:Key="7" fill="#FF000000"/>
 		</y:SharedData>
 	</data>
 	<graph id="G" edgedefault="directed">
 		<data key="d5">
-			<y:Json>{"version":"2.0.0","theme":{"name":"light","version":"1.0.0"},"bridge-style":"GAP"}</y:Json>
+			<y:Json>{"version":"2.0.0","bridge-style":"GAP","theme":{"name":"light","version":"1.0.0"}}</y:Json>
 		</data>
 		<node id="n0">
 			<data key="d4">
@@ -75,7 +59,6 @@
 				</uml:UMLNodeStyle>
 			</data>
 			<port name="p0"/>
-			<port name="p1"/>
 		</node>
 		<node id="n1">
 			<data key="d4">
@@ -96,7 +79,11 @@
 				</uml:UMLNodeStyle>
 			</data>
 			<port name="p0"/>
-			<port name="p1"/>
+			<port name="p1">
+				<data key="d15">
+					<y:FreeNodePortLocationModelParameter Ratio="0.9921259842519685,0.5"/>
+				</data>
+			</port>
 		</node>
 		<node id="n2">
 			<data key="d4">
@@ -119,12 +106,6 @@
 				</uml:UMLNodeStyle>
 			</data>
 			<port name="p0"/>
-			<port name="p1"/>
-			<port name="p2">
-				<data key="d15">
-					<y:FreeNodePortLocationModelParameter Ratio="0.5,0.009090909090909094"/>
-				</data>
-			</port>
 		</node>
 		<node id="n3">
 			<data key="d4">
@@ -148,25 +129,6 @@
 			</data>
 			<port name="p0"/>
 			<port name="p1"/>
-		</node>
-		<node id="n4">
-			<data key="d3">
-				<x:List>
-					<y:Label LayoutParameter="{x:Static y:InteriorStretchLabelModel.Center}">
-						<y:Label.Text>Cliente</y:Label.Text>
-						<y:Label.Style>
-							<yjs:DefaultLabelStyle verticalTextAlignment="CENTER" horizontalTextAlignment="CENTER" font="{y:GraphMLReference 3}" textFill="BLACK"/>
-						</y:Label.Style>
-					</y:Label>
-				</x:List>
-			</data>
-			<data key="d4">
-				<y:RectD X="-72.5" Y="-412.625" Width="189" Height="30"/>
-			</data>
-			<data key="d6">
-				<uml:UMLNoteStyle fill="#FFB0BEC5" stroke="BLACK"/>
-			</data>
-			<port name="p0"/>
 		</node>
 		<edge id="e0" source="n0" target="n1" sourceport="p0" targetport="p0">
 			<data key="d11">
@@ -197,35 +159,14 @@
 			</data>
 		</edge>
 		<edge id="e2" source="n3" target="n1" sourceport="p1" targetport="p1">
-			<data key="d10">
-				<x:List>
-					<y:Label LayoutParameter="{y:GraphMLReference 4}" Style="{y:GraphMLReference 5}">
-						<y:Label.Text>&lt;&lt;create&gt;&gt;</y:Label.Text>
-					</y:Label>
-				</x:List>
-			</data>
 			<data key="d12">
-				<y:GraphMLReference ResourceKey="6"/>
-			</data>
-		</edge>
-		<edge id="e3" source="n2" target="n0" sourceport="p1" targetport="p1">
-			<data key="d10">
-				<x:List>
-					<y:Label LayoutParameter="{y:GraphMLReference 4}" Style="{y:GraphMLReference 5}">
-						<y:Label.Text>&lt;&lt;use&gt;&gt;</y:Label.Text>
-					</y:Label>
-				</x:List>
-			</data>
-			<data key="d12">
-				<y:GraphMLReference ResourceKey="6"/>
-			</data>
-		</edge>
-		<edge id="e4" source="n4" target="n2" sourceport="p0" targetport="p2">
-			<data key="d12">
-				<yjs:PolylineEdgeStyle stroke="{y:GraphMLReference 7}">
-					<yjs:PolylineEdgeStyle.sourceArrow>
-						<yjs:Arrow type="DIAMOND" stroke="{y:GraphMLReference 7}" fill="#FFFFFFFF"/>
-					</yjs:PolylineEdgeStyle.sourceArrow>
+				<yjs:PolylineEdgeStyle>
+					<yjs:PolylineEdgeStyle.stroke>
+						<yjs:Stroke fill="#FF000000" dashStyle="Dash"/>
+					</yjs:PolylineEdgeStyle.stroke>
+					<yjs:PolylineEdgeStyle.targetArrow>
+						<yjs:Arrow stroke="#FF000000" fill="#FF000000"/>
+					</yjs:PolylineEdgeStyle.targetArrow>
 				</yjs:PolylineEdgeStyle>
 			</data>
 		</edge>
