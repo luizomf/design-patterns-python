@@ -32,7 +32,7 @@ class Singleton(type):
 
 
 class AppSettings(metaclass=Singleton):
-    def __init__(self):
+    def __init__(self) -> None:
         self.tema = 'O tema escuro'
         self.font = '18px'
 

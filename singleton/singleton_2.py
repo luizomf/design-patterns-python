@@ -11,14 +11,14 @@ def singleton(the_class):
 
 @singleton
 class AppSettings:
-    def __init__(self):
+    def __init__(self) -> None:
         self.tema = 'O tema escuro'
         self.font = '18px'
 
 
 @singleton
 class Teste:
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
 

@@ -19,7 +19,7 @@ class AppSettings:
             cls._instance = super().__new__(cls, *args, **kwargs)
         return cls._instance
 
-    def __init__(self):
+    def __init__(self) -> None:
         """ O init será chamado todas as vezes """
         self.tema = 'O tema escuro'
         self.font = '18px'
