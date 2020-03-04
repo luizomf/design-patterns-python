@@ -33,14 +33,14 @@ class MotoPopular(Veiculo):
 
 
 class VeiculoFactory(ABC):
-    def __init__(self, tipo):
+    def __init__(self, tipo) -> None:
         self.carro = self.get_carro(tipo)
 
     @staticmethod
     @abstractmethod
     def get_carro(tipo: str) -> Veiculo: pass
 
-    def buscar_cliente(self):
+    def buscar_cliente(self) -> None:
         self.carro.buscar_cliente()
 
 
