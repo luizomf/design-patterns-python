@@ -117,7 +117,7 @@ class ZonaSulVeiculoFactory(VeiculoFactory):
 
 
 class Cliente:
-    def buscar_clientes(self):
+    def buscar_clientes(self) -> None:
         for factory in [ZonaNorteVeiculoFactory(), ZonaSulVeiculoFactory()]:
             carro_popular = factory.get_carro_popular()
             carro_popular.buscar_cliente()
