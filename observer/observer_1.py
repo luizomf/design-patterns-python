@@ -34,12 +34,12 @@ class IObservable(ABC):
 class WeatherStation(IObservable):
     """ Observable """
 
-    def __init__(self):
+    def __init__(self) -> None:
         self._observers: List[IObserver] = []
         self._state: Dict = {}
 
     @property
-    def state(self):
+    def state(self) -> Dict:
         return self._state
 
     @state.setter
@@ -50,7 +50,7 @@ class WeatherStation(IObservable):
             self._state = new_state
             self.notify_observers()
 
-    def reset_state(self):
+    def reset_state(self) -> None:
         self._state = {}
         self.notify_observers()
 
@@ -89,7 +89,7 @@ class Notebook(IObserver):
     def __init__(self, observable: IObservable) -> None:
         self.observable = observable
 
-    def show(self):
+    def show(self) -> None:
         state = self.observable.state
         print('Sou o note e vou fazer outra coisa com esses dados', state)
 
