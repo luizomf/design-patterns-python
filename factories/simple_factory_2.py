@@ -52,7 +52,7 @@ class MotoPopular(Veiculo):
 
 
 class VeiculoFactory:
-    def __init__(self, tipo):
+    def __init__(self, tipo) -> None:
         self.carro = self.get_carro(tipo)
 
     @staticmethod
@@ -67,7 +67,7 @@ class VeiculoFactory:
             return MotoLuxo()
         assert 0, 'Veículo não existe'
 
-    def buscar_cliente(self):
+    def buscar_cliente(self) -> None:
         self.carro.buscar_cliente()
 
 
