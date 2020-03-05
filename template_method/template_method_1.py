@@ -15,40 +15,40 @@ from abc import ABC, abstractmethod
 
 
 class Abstract(ABC):
-    def template_method(self):
+    def template_method(self) -> None:
         self.hook()
         self.operation1()
         self.base_class_method()
         self.operation2()
 
-    def hook(self): pass
+    def hook(self) -> None: pass
 
-    def base_class_method(self):
+    def base_class_method(self) -> None:
         print('OLÁ EU SOU DA CLASSE ABSTRATA E SEREI EXECUTADO TAMBÉM')
 
     @abstractmethod
-    def operation1(self): pass
+    def operation1(self) -> None: pass
 
     @abstractmethod
-    def operation2(self): pass
+    def operation2(self) -> None: pass
 
 
 class ConcreteClass1(Abstract):
-    def hook(self):
+    def hook(self) -> None:
         print('Olha eu vou utilizar o hook')
 
-    def operation1(self):
+    def operation1(self) -> None:
         print('Operaçao 1 concluída')
 
-    def operation2(self):
+    def operation2(self) -> None:
         print('Operaçao 2 concluída')
 
 
 class ConcreteClass2(Abstract):
-    def operation1(self):
+    def operation1(self) -> None:
         print('Operaçao 1 concluída (de maneira diferente)')
 
-    def operation2(self):
+    def operation2(self) -> None:
         print('Operaçao 2 concluída  (de maneira diferente)')
 
 
