@@ -1,0 +1,14 @@
+Mutáveis (passados por referência)
+  list
+  set
+  dict
+  class (o usuário pode mudar isso)
+  ...
+
+Imutáveis (copiados)
+  bool
+  int
+  float
+  tuple
+  str
+  ...
