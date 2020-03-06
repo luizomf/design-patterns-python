@@ -8,7 +8,6 @@ Uma diferença importante entre Factory Method e Abstract Factory é que o
 Factory Method usa herança, enquanto Abstract Factory usa a composição.
 
 Princípio: programe para interfaces, não para implementações
-
 """
 from abc import ABC, abstractmethod
 
