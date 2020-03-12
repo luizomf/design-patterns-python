@@ -66,10 +66,15 @@ class Chatroom(Mediator):
             return
 
         # Aqui você pode mandar um broadcast para todos os colleagues.
-        # Basta fazer um for em self.colleagues
-        # e um método em ConcreteColleague (Person) para receber este broadcast
-        # Por fim, você enviaria os dados para cada colleague. Por exemplo:
-        # colleague.receive(f'{colleague.name} disse: {msg}')
+        # Basta fazer um for em self.colleagues e um método em
+        # ConcreteColleague (Person) para receber este broadcast
+        # Por fim, você enviaria os dados para cada um dos colleagues.
+        #
+        # Por exemplo:
+        # for colleague in self.colleagues:
+        #   colleague.receive(f'{colleague.name} disse: {msg}')
+        #
+        # Obs.: O método receive deve ser criado em Person.
         print(f'{colleague.name} disse: {msg}')
 
     def direct(self, sender: Colleague, receiver: str, msg: str) -> None:
