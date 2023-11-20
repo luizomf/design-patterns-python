@@ -82,7 +82,7 @@ class PaymentRejected(OrderState):
         print('Pagamento recusado. Não vou mover para pendente.')
 
     def approve(self) -> None:
-        print('Pagamento recusado. Não vou recusar novamente.')
+        print('Pagamento recusado. Não vou mover para aprovado.')
 
     def reject(self) -> None:
         print('Pagamento recusado. Não vou recusar novamente.')
